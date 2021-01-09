@@ -7,7 +7,7 @@ def reverse(ss):
     if len(ss) == 0:
         return ss
     else:
-        print(f"ss[1:] is: {ss[1:]}, ss[0] is: {ss[0]}")
+        print(f"ss[1:] is: {ss[1:]}, ss[0] is: {ss[0]} - {ss[1:]}/{ss[0]} ")
         return reverse(ss[1:]) + ss[0]
     pass
 
