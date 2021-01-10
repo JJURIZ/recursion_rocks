@@ -9,20 +9,25 @@
 # pretty_print(inner_dictionary, indent + '..');
 # ...
 
-def pretty_print(dictionary, indent):
+def pretty_print(dictionary, indent, level=1):
     for key, value in dictionary.items():
-        if isinstance(value, dict):
-            pretty_print(value, indent)
+        print(f"This is the key: {key}. \nThis is the value: {value}")
+        # print(f"Dictionary items are following: {dictionary.items()}")
+        if type(value) == dict:
+            print(indent * level, key, ":")
+            print(f"This is the current level: {level}")
+            pretty_print(value, indent, level+1)
         else: 
-            print(indent, key, ":", value)
+            print(f"This is the indentation: {indent}")
+            print(indent * level, key, ":", value)
     pass
 
 o1 = {"a": 1, "b": 2}
 o2 = {"a": 1, "b": 2, "c": {"name": "Bruce Wayne", "occupation": "Hero"}, "d": 4}
 o3 = {"a": 1, "b": 2, "c": {"name": "Bruce Wayne", "occupation": "Hero", "friends": {"spiderman": {"name": "Peter Parker"}, "superman": {"name": "Clark Kent"}}}, "d": 4}
 
-print(pretty_print(o1, "-"))
-print(pretty_print(o2, " "))
+# print(pretty_print(o1, "-"))
+# print(pretty_print(o2, " "))
 print(pretty_print(o3, ".."))
 # ..a: 1
 # ..b: 2
